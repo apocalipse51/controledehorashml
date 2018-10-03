@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <header class="header clearfix">
+
+    <nav class="nav-menu">
+      <ul class="ul-menu">
+        <li class="li-menu">
+          <a href="/adicionar">Adicionar Nota</a>
+        </li>
+        <li class="li-menu">
+          <form action="/logoff" method="POST">
+            <input class="logoff" type="submit" value="Sair" />
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+    <div class="row">
+      <% for(var i=0; i<data.length; i++) {%>
+      <div class="col" style="background-color: <%=data[i].CardColorHex%> !important; color: #fff;">
+        <div>
+          <p class="card-text">
+            <%= data[i].CardContent %>
+          </p>
+        </div>
+        <p style="width: 100%; padding: 1em; word-break: break-all;">
+          <span class="remaining-user">
+            De:
+            <%= data[i].RemainingUserName %>
+          </span>
+          <br>
+          <span class="target-user">
+            Para:
+            <%= data[i].TargetUserName %>
+          </span>
+        </p>
+      </div>
+      <% } %>
+    </div>
+
+  </main>
+
+</body>
+
+</html>

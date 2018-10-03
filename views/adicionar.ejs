@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Adicionar Notas
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form-input.css' />
+</head>
+
+<body>
+
+    <header class="header clearfix">
+
+        <nav class="nav-menu">
+            <ul class="ul-menu">
+                <li class="li-menu">
+                    <a href="/index">Home</a>
+                </li>
+                <li class="li-menu">
+                    <a href="/adicionar">Adicionar Nota</a>
+                </li>
+                <li class="li-menu">
+                    <form action="/logoff" method="POST">
+                        <input class="logoff" type="submit" value="Sair" />
+                    </form>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <div>
+        <form action="/adicionar" method="POST">
+            <div class="form-input">
+                <label for="CardContent">Conteúdo da Mensagem: </label>
+                <textarea name="CardContent" id="CardContent" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-input-medium padding-left">
+                <label for="para">Para: </label>
+                <select name="para" id="para">
+                    <% for(let i = 0; i<Users.length; i++) { %>
+                    <option value="<%= Users[i].Nome %>">
+                        <%= Users[i].Nome %>
+                    </option>
+                    <%}%>
+                </select>
+            </div>
+            <div class="form-input-medium padding-right">
+                <button type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
