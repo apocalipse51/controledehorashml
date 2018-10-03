@@ -76,7 +76,7 @@ sql.connect(conString)
   .then(conn => {
     global.conn = conn;
     //inicia o servidor
-    server.listen(process.env.PORT || 3000);
+    server.listen(process.env.PORT);
     console.log('API funcionando!');
   })
   .catch(err => console.log(err));
